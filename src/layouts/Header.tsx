@@ -1,9 +1,11 @@
+import { useWeb3 } from "@/context/web3";
 import Link from "next/link";
 import React from "react";
 
 type Props = {};
 
 export default function Header({}: Props) {
+  const { isConnected } = useWeb3();
   return (
     <header>
       <nav className="border-gray-200  bg-blue-500 px-4 py-2.5 dark:bg-gray-800 lg:px-6">
@@ -22,14 +24,16 @@ export default function Header({}: Props) {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/tools"
-                  className="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 text-white hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-white"
-                >
-                  Tools
-                </Link>
-              </li>
+              {!!isConnected && (
+                <li>
+                  <Link
+                    href="/tools"
+                    className="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 text-white hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-white"
+                  >
+                    Tools
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>
