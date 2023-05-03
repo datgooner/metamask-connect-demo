@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import dynamic from "next/dynamic";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "react-dropzone-uploader/dist/styles.css";
 
 // Fixes: Hydration failed because the initial UI does not match what was rendered on the server.
 const Web3Provider = dynamic(

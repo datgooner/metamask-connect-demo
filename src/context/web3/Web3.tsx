@@ -2,11 +2,12 @@ import {
   appChainId,
   blockExplorerUrl,
   chainName,
+  moralisApiKey,
   rpcUrl,
   symbol,
 } from "@/constants/environment";
 import { MetaMaskInpageProvider } from "@metamask/providers";
-
+import Moralis from "moralis";
 import React, {
   createContext,
   useCallback,
@@ -35,6 +36,7 @@ export const Web3Context = createContext<IWeb3Value>({
   connect: () => Promise.resolve(""),
   metamask: undefined,
   isLoading: false,
+  startMoralis: () => Promise.resolve(),
 });
 
 export function Web3Provider({ children }: React.PropsWithChildren) {
@@ -189,6 +191,19 @@ export function Web3Provider({ children }: React.PropsWithChildren) {
       });
     }
   }, [connect]);
+  const startMoralis = useCallback(async () => {
+    try {
+      await Moralis.start({
+        apiKey: moralisApiKey,
+      });
+    } catch (error) {
+      console.log("🚀 ~ file: Web3.tsx:199 ~ startMoralist ~ error:", error);
+    }
+  }, []);
+
+  useEffect(() => {
+    startMoralis();
+  }, [startMoralis]);
 
   return (
     <Web3Context.Provider
@@ -200,6 +215,7 @@ export function Web3Provider({ children }: React.PropsWithChildren) {
         metamask: metamask.current,
         connect,
         isLoading,
+        startMoralis,
       }}
     >
       {children}

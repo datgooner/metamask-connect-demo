@@ -9,6 +9,7 @@ export interface IWeb3Value {
   connect: () => Promise<string>;
   metamask?: MetaMaskInpageProvider;
   isLoading: boolean;
+  startMoralis: () => Promise<any>;
 }
 
 export interface ProviderConnectInfo {
