@@ -23,11 +23,11 @@ export const resolveLink = (url: string) => {
   return newUrl;
 };
 
-export const fetchImageUrl = (url: string) => {
+export const fetchImageUrl = async (url: string) => {
   const newUrl = resolveLink(url);
-  return fetch(newUrl)
-    .then((response) => response.json())
-    .then((data) => data);
+  const response = await fetch(newUrl);
+  const data = await response.json();
+  return data;
 };
 
 export async function handleResolveMetaData(nftItems: any[]) {
