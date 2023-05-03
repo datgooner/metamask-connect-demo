@@ -34,6 +34,46 @@ export default function Header({}: Props) {
                   </Link>
                 </li>
               )}
+              {!!isConnected && (
+                <li>
+                  <Link
+                    href="/nft-ipfs"
+                    className="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 text-white hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-white"
+                  >
+                    NFT IPFS
+                  </Link>
+                </li>
+              )}
+              {!!isConnected && (
+                <li>
+                  <Link
+                    href="/mint-nft"
+                    className="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 text-white hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-white"
+                  >
+                    Mint NFT
+                  </Link>
+                </li>
+              )}
+              {!!isConnected && (
+                <li>
+                  <Link
+                    href="/list-nfts"
+                    className="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 text-white hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-white"
+                  >
+                    List NFTs
+                  </Link>
+                </li>
+              )}
+              {!!isConnected && (
+                <li>
+                  <Link
+                    href="/documentation"
+                    className="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 text-white hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-white"
+                  >
+                    Documentation
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>
